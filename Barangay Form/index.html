@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barangay Health & Disaster Monitoring</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h2
+      style="
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+      "
+    >
+      Barangay Health and Disaster Monitoring — interactive multi-step form with
+      fixed button visibility
+    </h2>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css"
+    />
+
+    <div class="form-shell">
+      <div class="card">
+        <!-- ========================================
+         BRAND HEADER
+    ========================================= -->
+        <div class="brand-row">
+          <div class="brand-icon">
+            <i class="ti ti-leaf" aria-hidden="true"></i>
+          </div>
+
+          <span class="brand-title">
+            Barangay Health & Disaster Monitoring
+          </span>
+        </div>
+
+        <p class="brand-sub">
+          Barangay Sta. Cruz &nbsp;·&nbsp; Health Services Unit
+        </p>
+
+        <div class="progress-wrap">
+          <div class="progress-fill" id="pf" style="width: 25%"></div>
+        </div>
+
+        <div class="step-labels" id="stepLabels">
+          <span id="sl0" class="cur">Personal</span>
+          <span id="sl1">Health</span>
+          <span id="sl2">Disaster</span>
+          <span id="sl3">Result</span>
+        </div>
+
+        <div class="step-panel active" id="sp0">
+          <div class="step-heading">
+            <i class="ti ti-user" aria-hidden="true"></i>
+            Personal information
+          </div>
+
+          <div class="row2">
+            <div class="field" id="field-name">
+              <label>Full name</label>
+              <input type="text" id="inp-name" placeholder="Juan dela Cruz" />
+              <span class="field-error-msg">Full name is required.</span>
+            </div>
+
+            <div class="field" id="field-age">
+              <label>Age</label>
+              <input
+                type="number"
+                id="inp-age"
+                placeholder="35"
+                min="1"
+                max="120"
+              />
+              <span class="field-error-msg"
+                >Please enter a valid age (1–120).</span
+              >
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Gender</label>
+
+            <div class="pill-row">
+              <div class="pill on" data-g="gender">
+                <i class="ti ti-gender-male" aria-hidden="true"></i>
+                Male
+              </div>
+
+              <div class="pill" data-g="gender">
+                <i class="ti ti-gender-female" aria-hidden="true"></i>
+                Female
+              </div>
+
+              <div class="pill" data-g="gender">
+                <i class="ti ti-gender-bigender" aria-hidden="true"></i>
+                Other
+              </div>
+            </div>
+          </div>
+
+          <div class="field" id="field-purok">
+            <label>Purok / Zone</label>
+
+            <select id="inp-purok">
+              <option value="">Select purok</option>
+              <option>Purok 1</option>
+              <option>Purok 2</option>
+              <option>Purok 3</option>
+              <option>Purok 4</option>
+            </select>
+            <span class="field-error-msg">Please select a purok.</span>
+          </div>
+        </div>
+
+        <div class="step-panel" id="sp1">
+          <div class="step-heading">
+            <i class="ti ti-stethoscope" aria-hidden="true"></i>
+            Health status
+          </div>
+
+          <div class="field">
+            <label>Vaccination status</label>
+
+            <div class="pill-row">
+              <div class="pill on" data-g="vax">
+                <i class="ti ti-vaccine" aria-hidden="true"></i>
+                Vaccinated
+              </div>
+
+              <div class="pill" data-g="vax">
+                <i class="ti ti-vaccine-bottle-off" aria-hidden="true"></i>
+                Unvaccinated
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Recent symptoms</label>
+
+            <div class="pill-row">
+              <div class="pill on" data-c="s">
+                <i class="ti ti-thermometer" aria-hidden="true"></i>
+                Fever
+              </div>
+
+              <div class="pill" data-c="s">
+                <i class="ti ti-lungs" aria-hidden="true"></i>
+                Cough
+              </div>
+
+              <div class="pill" data-c="s">
+                <i class="ti ti-zzz" aria-hidden="true"></i>
+                Fatigue
+              </div>
+
+              <div class="pill" data-c="s">
+                <i class="ti ti-circle-check" aria-hidden="true"></i>
+                None
+              </div>
+            </div>
+          </div>
+
+          <div class="row2">
+            <div class="field" id="field-checkup">
+              <label>Last medical checkup</label>
+              <input type="date" id="inp-checkup" />
+              <span class="field-error-msg"
+                >Please enter your last checkup date.</span
+              >
+            </div>
+
+            <div class="field" id="field-conditions">
+              <label>Pre-existing conditions</label>
+
+              <select id="inp-conditions">
+                <option value="">Select if any</option>
+                <option>Hypertension</option>
+                <option>Diabetes</option>
+                <option>Asthma</option>
+                <option>None</option>
+              </select>
+              <span class="field-error-msg">Please select an option.</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Additional health notes</label>
+
+            <textarea
+              rows="3"
+              placeholder="Describe any symptoms or concerns…"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="step-panel" id="sp2">
+          <div class="step-heading">
+            <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+            Disaster preparedness
+          </div>
+
+          <div class="field">
+            <label>Emergency kit prepared?</label>
+
+            <div class="pill-row">
+              <div class="pill on" data-g="kit">
+                <i class="ti ti-check" aria-hidden="true"></i>
+                Yes, ready
+              </div>
+
+              <div class="pill" data-g="kit">
+                <i class="ti ti-x" aria-hidden="true"></i>
+                Not yet
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Evacuation plan</label>
+
+            <div class="pill-row">
+              <div class="pill on" data-c="e">
+                <i class="ti ti-building-community" aria-hidden="true"></i>
+                Assigned center
+              </div>
+
+              <div class="pill" data-c="e">
+                <i class="ti ti-map-pin" aria-hidden="true"></i>
+                Family meeting point
+              </div>
+
+              <div class="pill" data-c="e">
+                <i class="ti ti-circle-off" aria-hidden="true"></i>
+                None yet
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Household size</label>
+
+            <div class="pill-row">
+              <div class="pill on" data-g="hh">1–3 members</div>
+
+              <div class="pill" data-g="hh">4–6 members</div>
+
+              <div class="pill" data-g="hh">7+ members</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Past disaster experience</label>
+
+            <textarea
+              rows="3"
+              placeholder="Briefly describe any typhoon, flood, or earthquake experience…"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="step-panel" id="sp3">
+          <div class="step-heading">
+            <i class="ti ti-report-analytics" aria-hidden="true"></i>
+            Assessment result
+          </div>
+
+          <div class="result-center">
+            <div class="score-big" id="scoreBig">–</div>
+
+            <div class="score-sub">risk score out of 10</div>
+
+            <div class="risk-pill" id="riskPill">
+              <i class="ti ti-alert-circle" aria-hidden="true"></i>
+              <span id="riskLabel">–</span>
+            </div>
+          </div>
+
+          <div class="rec-section">
+            <div class="rec-label">Recommended actions</div>
+
+            <div id="recList"></div>
+          </div>
+
+          <div class="stat-row" id="statRow"></div>
+
+          <div class="rec-section">
+            <div class="rec-label">Resident Summary</div>
+
+            <div id="residentSummary"></div>
+          </div>
+
+          <button
+            class="export-btn"
+            onclick="
+              sendPrompt(
+                'Can you generate a PDF summary of this barangay health assessment result?',
+              )
+            "
+          >
+            <i class="ti ti-download" aria-hidden="true"></i>
+            Export report ↗
+          </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="nav-row">
+          <button class="btn-back" id="backBtn" onclick="go(-1)">
+            <i class="ti ti-arrow-left" aria-hidden="true"></i>
+            Back
+          </button>
+
+          <span class="nav-hint" id="hint"> Step 1 of 4 </span>
+
+          <button class="btn-next" id="nextBtn" onclick="go(1)">
+            Next
+            <i class="ti ti-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
